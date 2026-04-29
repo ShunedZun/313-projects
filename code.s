@@ -1,5 +1,7 @@
 .section .data
 outtext: .asciz "The double is: "
+numtext: .asciz
+outleng = . - outtext
 
 .section .bss
 number: .space 4
@@ -16,4 +18,4 @@ int $0x80
 
 mov $4, %eax
 mov $1, %ebx
-mov
+mov $outtext, %ecx
