@@ -39,7 +39,7 @@ jmp convert
 #point to now double the value
 done:
 add %eax, %eax
-mov $numout, %esi
+mov $numberout, %esi
 add $31, %esi
 
 movb $0, (%esi)
@@ -66,7 +66,7 @@ int $0x80
 mov $4, %eax
 mov $1, %ebx
 mov %esi, %ecx
-mov $numout, %edx
+mov $numberout, %edx
 add $31, %edx
 sub %esi, %edx
 int $0x80
