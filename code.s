@@ -27,6 +27,8 @@ convert:
 movzbl (%esi), %ebx
 cmp $10, %ebx
 je done
+cmp $0, %ebx
+je done
 
 sub $'0', %ebx
 
@@ -54,6 +56,7 @@ div %ebx
 add $'0', %dl
 mov %dl, (%esi)
 
+test %eax, %eax
 jnz sconvert
 
 #output
