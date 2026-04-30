@@ -1,7 +1,7 @@
 .section .data
 outtext: .asciz "\nThe double is: "
-numtext: .asciz "%ld"
 outleng = . - outtext
+newline: .asciz "\n"
 
 .section .bss
 numberin: .space 32
@@ -72,6 +72,12 @@ mov %esi, %ecx
 mov $numberout, %edx
 add $31, %edx
 sub %esi, %edx
+int $0x80
+
+mov $4, %eax
+mov $1, %ebx
+mov $newline, %ecx
+mov $1, %edx
 int $0x80
 
 mov $1, %eax
