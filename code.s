@@ -30,7 +30,7 @@ je done
 
 sub $'0', %ebx
 
-imul $10, $eax, $eax
+imul $10, %eax, %eax
 add %ebx, %eax
 
 inc %esi
@@ -39,7 +39,7 @@ jmp convert
 #point to now double the value
 done:
 add %eax, %eax
-move $numout, %esi
+mov $numout, %esi
 add $31, %esi
 
 movb $0, (%esi)
@@ -49,10 +49,10 @@ mov $10, %ebx
 sconvert:
 dec %esi
 xor %edx, %edx
-div $ebx
+div %ebx
 
 add $'0', %dl
-move %dl, (%esi)
+mov %dl, (%esi)
 
 jnz sconvert
 
@@ -60,7 +60,7 @@ jnz sconvert
 mov $4, %eax
 mov $1, %ebx
 mov $outtext, %ecx
-move $outleng, %edx
+mov $outleng, %edx
 int $0x80
 
 mov $4, %eax
